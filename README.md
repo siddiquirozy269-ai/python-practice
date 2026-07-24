@@ -1,5 +1,3 @@
-# python-practice
-My Python programming practice and projects.
 # 🐍 Python Practice
 
 Welcome to my Python Practice repository!
