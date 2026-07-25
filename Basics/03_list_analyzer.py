@@ -48,7 +48,7 @@ try:
     second_largest_value = second_largest(list_analyze)
     list_sum = sum_list(list_analyze)
     list_average = avg_list(list_analyze)
-    even_value = even_num(list_analyze)
+    even_value = even_num(list_analyze) 
     odd_value = odd_num(list_analyze)
 
     # Displaying the results
