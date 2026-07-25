@@ -1,70 +1,93 @@
-try:
-    list_analyze = []
+# ---------------------------------------------------------
+# Program 3: List Analyzer
+# Concepts Used:
+# Lists, Loops, Functions, Conditional Statements
+# ---------------------------------------------------------
 
-    # Taking 10 numbers as input
-    for i in range(10):
-        list_item = int(input("Enter the number: "))
-        list_analyze.append(list_item)
+# ---------------------- Input ---------------------- #
 
-    def largest_num(n):
-        return max(n)
+numbers = []
 
-    def smallest_num(n):
-        return min(n)
+print("Enter 10 integers:\n")
 
-    # Find the second largest number without modifying the original list
-    def second_largest(n):
-        unique_numbers = list(set(n))
+for i in range(10):
+    number = int(input(f"Enter number {i + 1}: "))
+    numbers.append(number)
 
-        if len(unique_numbers) < 2:
-            return "Not Available"
+# -------------------- Functions -------------------- #
 
-        unique_numbers.remove(max(unique_numbers))
-        return max(unique_numbers)
+# Find the largest number
+def largest_number(values):
+    return max(values)
 
-    def sum_list(n):
-        return sum(n)
 
-    def avg_list(n):
-        return sum(n) / len(n)
+# Find the smallest number
+def smallest_number(values):
+    return min(values)
 
-    def even_num(n):
-        even = []
-        for item_even in n:
-            if item_even % 2 == 0:
-                even.append(item_even)
-        return even
 
-    def odd_num(n):
-        odd_values = []
-        for item_odd in n:
-            if item_odd % 2 != 0:
-                odd_values.append(item_odd)
-        return odd_values
+# Find the second largest unique number
+def second_largest(values):
+    unique_numbers = list(set(values))
 
-    # Calling all functions
-    largest_value = largest_num(list_analyze)
-    smallest_value = smallest_num(list_analyze)
-    second_largest_value = second_largest(list_analyze)
-    list_sum = sum_list(list_analyze)
-    list_average = avg_list(list_analyze)
-    even_value = even_num(list_analyze) 
-    odd_value = odd_num(list_analyze)
+    if len(unique_numbers) < 2:
+        return "Not Available"
 
-    # Displaying the results
-    print("\n----- List Analysis -----")
-    print("List values are below:")
+    unique_numbers.remove(max(unique_numbers))
+    return max(unique_numbers)
 
-    for idx, item in enumerate(list_analyze, start=1):
-        print(f"{idx}: Value ~ {item}")
 
-    print(f"\nThe largest value in the list is: {largest_value}")
-    print(f"The smallest value in the list is: {smallest_value}")
-    print(f"The second largest value in the list is: {second_largest_value}")
-    print(f"The sum of the list values is: {list_sum}")
-    print(f"The average of the list values is: {list_average:.2f}")
-    print(f"The even values in the list are: {even_value}")
-    print(f"The odd values in the list are: {odd_value}")
+# Calculate the sum of all numbers
+def total_sum(values):
+    return sum(values)
 
-except ValueError:
-    print("Error: Please enter a valid integer.")
+
+# Calculate the average
+def average(values):
+    return sum(values) / len(values)
+
+
+# Find all even numbers
+def even_numbers(values):
+    even = []
+
+    for number in values:
+        if number % 2 == 0:
+            even.append(number)
+
+    return even
+
+
+# Find all odd numbers
+def odd_numbers(values):
+    odd = []
+
+    for number in values:
+        if number % 2 != 0:
+            odd.append(number)
+
+    return odd
+
+
+# -------------------- Main Program -------------------- #
+
+print("\n" + "-" * 55)
+print("                 LIST ANALYZER PROGRAM")
+print("-" * 55)
+
+print("\nList Values")
+print("-" * 20)
+
+for index, number in enumerate(numbers, start=1):
+    print(f"{index}. {number}")
+
+print("\nAnalysis")
+print("-" * 20)
+
+print(f"Largest Number        : {largest_number(numbers)}")
+print(f"Smallest Number       : {smallest_number(numbers)}")
+print(f"Second Largest Number : {second_largest(numbers)}")
+print(f"Sum of Numbers        : {total_sum(numbers)}")
+print(f"Average               : {average(numbers):.2f}")
+print(f"Even Numbers          : {even_numbers(numbers)}")
+print(f"Odd Numbers           : {odd_numbers(numbers)}")
