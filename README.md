@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # 🐍 Python Practice
 
 Welcome to my Python Practice repository!
