@@ -1,76 +1,104 @@
-try:
-    number = int(input("Enter the number to analyze: "))
+# ---------------------------------------------------------
+# Program 2: Number Analyzer
+# Concepts Used:
+# Functions, Loops, Conditional Statements, Operators
+# ---------------------------------------------------------
 
-    def pos_neg(n):
-        if n > 0:
-            print("The number is positive.")
-        elif n < 0:
-            print("The number is negative.")
-        else:
-            print("The number is zero.")
+# ---------------------- Input ---------------------- #
 
-    def even_odd(n):
-        if n % 2 == 0:
-            print("The number is even.")
-        else:
-            print("The number is odd.")
+number = int(input("Enter a number to analyze: "))
 
-    def prime_or_not(n):
-        if n <= 1:
-            print("The number is not a prime number.")
-        else:
-            for i in range(2, n):
-                if n % i == 0:
-                    print("The number is not a prime number.")
-                    break
-            else:
-                print("The number is a prime number.")
+# -------------------- Functions -------------------- #
 
-    def armstrong_or_not(n):
-        if n < 0:
-            print("Negative numbers are not Armstrong numbers.")
-            return
+# Check whether the number is positive, negative, or zero
+def check_sign(value):
+    if value > 0:
+        return "Positive"
+    elif value < 0:
+        return "Negative"
+    else:
+        return "Zero"
 
-        temp = n
-        arms = n
-        count = 0
-        total = 0
 
-        while temp > 0:
-            count += 1
-            temp //= 10
+# Check whether the number is even or odd
+def check_even_odd(value):
+    if value % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
 
-        while arms > 0:
-            digit = arms % 10
-            total += digit ** count
-            arms //= 10
 
-        if total == n:
-            print("The number is an Armstrong number.")
-        else:
-            print("The number is not an Armstrong number.")
+# Check whether the number is prime
+def check_prime(value):
 
-    def palindrome_or_not(n):
-        n = abs(n)
-        original = n
-        rev = 0
+    if value <= 1:
+        return False
 
-        while n > 0:
-            digit = n % 10
-            rev = rev * 10 + digit
-            n //= 10
+    for i in range(2, value):
+        if value % i == 0:
+            return False
 
-        if rev == original:
-            print("The number is a palindrome.")
-        else:
-            print("The number is not a palindrome.")
+    return True
 
-    print("\n----- Number Analysis -----")
-    pos_neg(number)
-    even_odd(number)
-    prime_or_not(number)
-    armstrong_or_not(number)
-    palindrome_or_not(number)
 
-except ValueError:
-    print("Error: Please enter a valid integer.")
+# Check whether the number is an Armstrong number
+def check_armstrong(value):
+
+    if value < 0:
+        return False
+
+    digits = len(str(value))
+    temp = value
+    total = 0
+
+    while temp > 0:
+        digit = temp % 10
+        total += digit ** digits
+        temp //= 10
+
+    return total == value
+
+
+# Check whether the number is a palindrome
+def check_palindrome(value):
+
+    original = abs(value)
+    temp = original
+    reverse = 0
+
+    while temp > 0:
+        digit = temp % 10
+        reverse = reverse * 10 + digit
+        temp //= 10
+
+    return reverse == original
+
+
+# -------------------- Main Program -------------------- #
+
+print("\n" + "-" * 55)
+print("                NUMBER ANALYZER PROGRAM")
+print("-" * 55)
+
+print(f"\nEntered Number : {number}")
+
+print("\nAnalysis")
+print("-" * 20)
+
+print(f"Number Type        : {check_sign(number)}")
+print(f"Even / Odd         : {check_even_odd(number)}")
+
+if check_prime(number):
+    print("Prime Number       : Yes")
+else:
+    print("Prime Number       : No")
+
+if check_armstrong(number):
+    print("Armstrong Number   : Yes")
+else:
+    print("Armstrong Number   : No")
+
+if check_palindrome(number):
+    print("Palindrome Number  : Yes")
+else:
+    print("Palindrome Number  : No")
