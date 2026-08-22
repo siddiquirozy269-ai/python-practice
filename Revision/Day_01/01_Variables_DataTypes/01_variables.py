@@ -1,77 +1,96 @@
-# Revision Variables
-# Variable Assignment
-# '=' operator used for assigning a variable
+# Data Types in Python
 
-name = 'Rozy' # String type variable
-age = 18 # Integer type variable
-marks = 87.5 # Float type variable
-is_Student = True
+# --------------------------------------------------
+# 1. int - Integer
+# Used for whole numbers without decimal values.
+# --------------------------------------------------
 
-# Multiple Variables in One Line
+age = 18
+marks = 90
+temperature = -5
+low = 0
 
-a, b, c, d = 10, 20, 30, 40
+print(type(age))
+print(type(marks))
+print(type(temperature))
+print(type(low))
 
-# a=10
-# b=20
-# c=30
-# d=40
 
-print(a)
-print(b)
-print(c)
-print(d)
+# --------------------------------------------------
+# 2. float - Floating Point Number
+# Used for numbers containing decimal values.
+# --------------------------------------------------
 
-# Constants - values intended to remain unchanged
-# Python uses UPPER_CASE as the naming convention for constants
+price = 99.99
+percentage = 87.5
+height = 5.8
 
-PI=3.14
-MAX_LIMIT=30
+print(type(price))
+print(type(percentage))
+print(type(height))
 
-# Temporary Variables
-# Used for swapping
 
-a = 10
-b = 20
+# --------------------------------------------------
+# 3. str - String
+# Used for text.
+# Strings can be enclosed in single or double quotes.
+# --------------------------------------------------
 
-a, b = b, a
+name = "Rozy"
+city = 'Delhi'
+message = "Hello World"
 
-print(a)
-print(b)
+# Numbers inside quotes become strings.
 
-# Delete Variables
-# Syntax: del var_name
+number = "100"
 
-x = 23
-del x
-# x variable is deleted now
+print(type(name))
+print(type(city))
+print(type(message))
+print(type(number))
 
-# Check Variable Type
-# Function - type() 
-# syntax : type(var_name)
 
-student_id = 110234
-student_name = "Rozy"
-student_marks = 95.8
+# --------------------------------------------------
+# 4. bool - Boolean
+# Boolean has only two values: True and False.
+# --------------------------------------------------
 
-print(type(student_id))
-print(type(student_name))
-print(type(student_marks))
-
-# Best Practices
-# Snake Case Naming
-
-user_age = 18
+is_student = True
 is_logged_in = False
 
-# Valid Variables Names
+print(type(is_student))
+print(type(is_logged_in))
 
-student_name = "Jone"
-age2 = 18
-_user = "admin"
-student_2026 = True
 
-# Invalid Variable Names
+# Boolean values are commonly produced by comparisons.
 
-# 2age = 18                     #Cannot start with a number
-# student name = Jone           #Spaces are not allowed
-# class = BCA                   #Keywords are not allowed because it is already reserved
+age = 18
+
+print(age >= 18)
+print(age == 18)
+print(age < 18)
+
+
+# --------------------------------------------------
+# 5. None
+# Represents the intentional absence of a value.
+# --------------------------------------------------
+
+password = None
+
+print(type(password))
+
+
+# --------------------------------------------------
+# 6. Comments
+# Comments are text in the code that Python ignores
+# during execution. They are mainly used to explain code.
+#
+# Single-Line Comment:
+# This is a single-line comment.
+
+# Multi-Line String:
+"""
+This is a multi-line string.
+It can span across multiple lines.
+"""
